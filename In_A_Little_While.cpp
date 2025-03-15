@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+string superSecretPassword = "KrabbyPattySecretFormula";
 
 int main() {
     srand(time(0));                             //Seed a random number
@@ -19,6 +20,15 @@ int main() {
         }
         cin >> userGuess;                           //Get user input again
     }
-    cout << "You guessed Correctly!";               //If user guess is equal to random number, print this message
-    return 0;
+    cout << "You guessed Correctly! But can you guess my secret password?" << endl;   //If user guess is equal to random number, print this message
+    string userPasswordGuess;
+    cout << "Enter the secret password (Hint: it's all one word): ";           //Prompt user for input and store in userPasswordGuess
+    cin >> userPasswordGuess;
+    while (userPasswordGuess != superSecretPassword) {                     //While the user password guess is not equal to the password, ask to try again        
+        cout << "Try again: "; 
+        cin >> userPasswordGuess;
+        cout << endl;
+    }
+    cout << "You guessed the secret password!" << endl;             //If user password guess equals password, print this message
+        return 0;
 }
